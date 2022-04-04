@@ -36,7 +36,6 @@ function main ()
     -- read all the options from the target
     local explorer_options = nil
     for name, option in pairs((project.options())) do
-        explorer_options = explorer_options or {}
         local explorer_option = {}
         if option:get("showmenu") then
             explorer_option.name = name
@@ -50,6 +49,7 @@ function main ()
                 explorer_option.values = explorer_option_values
             end
 
+            explorer_options = explorer_options or {}
             table.insert(explorer_options, explorer_option)
         end
     end
